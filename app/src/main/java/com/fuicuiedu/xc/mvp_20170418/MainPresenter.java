@@ -11,16 +11,16 @@ import java.util.List;
 
 public class MainPresenter {
     private List<String> mData;
-    private MainActivity mainActivity;
+    private MainView mainView;
 
-    public MainPresenter(MainActivity mainActivity){
+    public MainPresenter(MainView mainView){
         mData = new ArrayList<>();
-        this.mainActivity = mainActivity;
+        this.mainView = mainView;
     }
 
     public void loadData(){
         //显示加载动画
-        mainActivity.showPrb();
+        mainView.showPrb();
         //异步加载数据
         MyAsyncTask task = new MyAsyncTask();
         task.execute();
@@ -51,9 +51,9 @@ public class MainPresenter {
                 mData.add("第" + i + "条数据");
             }
             //设置数据
-            mainActivity.setData(mData);
+            mainView.setData(mData);
             //隐藏加载动画
-            mainActivity.hidePrb();
+            mainView.hidePrb();
         }
     }
 }
