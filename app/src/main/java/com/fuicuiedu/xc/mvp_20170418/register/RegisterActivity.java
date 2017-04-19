@@ -40,7 +40,8 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
     @OnClick(R.id.register_btn)
     public void onClick(){
         //业务操作
-        new RegisterPresenter(this).register();
+        RegisterPresenter registerPresenter = new RegisterPresenter(this);
+        registerPresenter.register();
     }
 
     @Override
